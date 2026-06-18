@@ -12,3 +12,4 @@
 /Users/nelsonmureire/RiderProjects/Module-0/TileCost Caculator/obj/Debug/net9.0/TileCost Caculator.pdb
 /Users/nelsonmureire/RiderProjects/Module-0/TileCost Caculator/obj/Debug/net9.0/TileCost Caculator.genruntimeconfig.cache
 /Users/nelsonmureire/RiderProjects/Module-0/TileCost Caculator/obj/Debug/net9.0/ref/TileCost Caculator.dll
+/Users/nelsonmureire/RiderProjects/Module-0/TileCost Caculator/obj/Debug/net9.0/TileCost Caculator.sourcelink.json
