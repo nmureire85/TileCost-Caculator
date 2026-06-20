@@ -4,6 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
+        const int FLOORING_PER_HOUR = 20;
+        const double COST_OF_FLOORING_PER_HOUR = 86.00;
+        const double PI = 3.14159;
+        const string TRIANGLE = "triangle";
+        const string SQUARE = "square";
+        const string CIRCLE = "circle";
+        
         Console.WriteLine(
             "Welcome to the Tile Cost Caculator!. Brought to you by Nelson Construction LTD\nBefore we proceed, let us collect some input");
 
@@ -24,12 +31,8 @@ class Program
 
         Console.Write("\nEnter shape of non-rectangular room: ");
         string shapeOfNonRectangularRoom = Console.ReadLine();
-
-        const int FLOORING_PER_HOUR = 20;
-        const double COST_OF_FLOORING_PER_HOUR = 86.00;
-        const double PI = 3.14159;
-
-        if (shapeOfNonRectangularRoom == "triangle")
+        
+        if (shapeOfNonRectangularRoom == TRIANGLE)
         {
             Console.Write("Enter Base of triangle: ");
             int baseofTriangle = int.Parse(Console.ReadLine());
@@ -37,30 +40,30 @@ class Program
             Console.Write("Enter height of triangle: ");
             int heightOfTriangle = int.Parse(Console.ReadLine());
 
-            double costPerUnitOfTriangularRoom = COST_OF_FLOORING_PER_HOUR / FLOORING_PER_HOUR;
+            double costPerUnitOfRoom = COST_OF_FLOORING_PER_HOUR / FLOORING_PER_HOUR;
 
             double areaOfTriangle = (baseofTriangle * heightOfTriangle) / 2;
 
-            double totalLabourCostForTriangularRoom = areaOfTriangle * costPerUnitOfTriangularRoom;
+            double totalLabourCost = calculateLabourCost(areaOfTriangle, costPerUnitOfRoom);
 
-            Console.Write($"The total labour cost for triangular room is: ${totalLabourCostForTriangularRoom}");
+            Console.Write($"The total labour cost for triangular room is: ${totalLabourCost}");
         }
 
-        if (shapeOfNonRectangularRoom == "circle")
+        if (shapeOfNonRectangularRoom == CIRCLE)
         {
             Console.Write("Radius of cirlcle: ");
             int radius = int.Parse(Console.ReadLine());
 
-            double costPerUnitOfCircularRoom = COST_OF_FLOORING_PER_HOUR / FLOORING_PER_HOUR;
+            double costPerUnitOfRoom = COST_OF_FLOORING_PER_HOUR / FLOORING_PER_HOUR;
 
             double areaOfCircle = PI * radius * radius;
 
-            double totalLabourCostForCircleRoom = areaOfCircle * costPerUnitOfCircularRoom;
+            double totalLabourCost = calculateLabourCost(areaOfCircle, costPerUnitOfRoom);
 
-            Console.Write($"The total labour cost for circular room is: ${totalLabourCostForCircleRoom}");
+            Console.Write($"The total labour cost for circular room is: ${totalLabourCost}");
         }
 
-        if (shapeOfNonRectangularRoom == "square")
+        if (shapeOfNonRectangularRoom == SQUARE)
 
         {
             Console.Write("Enter side length of square: ");
@@ -69,19 +72,28 @@ class Program
             Console.Write("Enter second side length of square: ");
             int side2 = int.Parse(Console.ReadLine());
 
-            double costPerUnitOfSquareRoom = COST_OF_FLOORING_PER_HOUR / FLOORING_PER_HOUR;
+            double costPerUnitOfRoom = COST_OF_FLOORING_PER_HOUR / FLOORING_PER_HOUR;
 
             double areaOfSquare = side1 * side2;
 
-            double totalLabourCostForSquareRoom = areaOfSquare * costPerUnitOfSquareRoom;
+            double totalLabourCost = areaOfSquare * costPerUnitOfRoom;
 
-            Console.Write($"The total labour cost for square room is: ${totalLabourCostForSquareRoom}");
+            Console.Write($"The total labour cost for square room is: ${totalLabourCost}");
         }
 
-        if (shapeOfNonRectangularRoom != "square" && shapeOfNonRectangularRoom != "circle" &&
-            shapeOfNonRectangularRoom != "triangle")
+        if (shapeOfNonRectangularRoom != SQUARE && shapeOfNonRectangularRoom != CIRCLE &&
+            shapeOfNonRectangularRoom != TRIANGLE)
         {
             Console.Write($"The shape entered  is not supported !!!!. Please try again.");
         }
+        
     }
+
+
+    static double calculateLabourCost(double areaOfShape, double costPerUnitOfRoom)
+    {
+        return areaOfShape * costPerUnitOfRoom;
+    }
+
+    
 }
