@@ -31,6 +31,13 @@ class Program
 
         Console.Write("\nEnter shape of non-rectangular room: ");
         string shapeOfNonRectangularRoom = Console.ReadLine();
+        
+        if (shapeOfNonRectangularRoom != SQUARE && shapeOfNonRectangularRoom != CIRCLE &&
+            shapeOfNonRectangularRoom != TRIANGLE)
+        {
+            Console.Write($"The shape entered  is not supported !!!!. Please try again.");
+            return;
+        }
 
         double area = 0;
         if (shapeOfNonRectangularRoom == TRIANGLE)
@@ -68,13 +75,7 @@ class Program
         double totalLabourCost = calculateLabourCost(area, costPerUnitOfRoom);
 
         Console.Write($"The total labour cost for {shapeOfNonRectangularRoom} is: {totalLabourCost}.");
-
-
-        if (shapeOfNonRectangularRoom != SQUARE && shapeOfNonRectangularRoom != CIRCLE &&
-            shapeOfNonRectangularRoom != TRIANGLE)
-        {
-            Console.Write($"The shape entered  is not supported !!!!. Please try again.");
-        }
+        
     }
 
 
